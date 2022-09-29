@@ -279,6 +279,100 @@ class _DashboardWidgetState extends State<DashboardWidget> {
         automaticallyImplyLeading: false,
         title: Text(
           'Dashboard',
+  Image source={require('./my-icon.png')} />
+  <Image source={require('./img/check.png')} />
+  // GOOD
+<Image source={require('./my-icon.png')} />;
+
+// BAD
+var icon = this.props.active
+  ? 'my-icon-active'
+  : 'my-icon-inactive';
+<Image source={require('./' + icon + '.png')} />;
+
+// GOOD
+var icon = this.props.active
+  ? require('./my-icon-active.png')
+  : require('./my-icon-inactive.png');
+<Image source={icon} />;
+  <Image
+  source={{ uri: 'app_icon' }}
+  style={{ width: 40, height: 40 }}
+/>
+  <Image
+  source={{ uri: 'asset:/app_icon.png' }}
+  style={{ width: 40, height: 40 }}
+/>
+  // GOOD
+<Image source={{uri: 'https://reactjs.org/logo-og.png'}}
+       style={{width: 400, height: 400}} />
+
+// BAD
+<Image source={{uri: 'https://reactjs.org/logo-og.png'}} />
+  <Image
+  source={{
+    uri: 'https://reactjs.org/logo-og.png',
+    method: 'POST',
+    headers: {
+      Pragma: 'no-cache'
+    },
+    body: 'Your Body goes here'
+  }}
+  style={{ width: 400, height: 400 }}
+/>
+  // include at least width and height!
+<Image
+  style={{
+    width: 51,
+    height: 51,
+    resizeMode: 'contain'
+  }}
+  source={{
+    uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='
+       <Image
+  source={{
+    uri: 'https://reactjs.org/logo-og.png',
+    cache: 'only-if-cached'
+  }}
+  style={{ width: 400, height: 400 }}
+/>{"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
+  Image source={{ uri: 'something.jpg' }} />
+  return (
+
+  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
+    <Text>Inside</Text>
+    RCTSetImageCacheLimits(4*1024*1024, 200*1024*1024);
+    .
+├── button.js
+└── img
+    ├── check.png
+    ├── check@2x.png
+    └── check@3x.png
+    <Image source={require('./img/check.png')} />
+    dependencies {
+    // ...
+
+    if (enableHermes) {
++       implementation("com.facebook.react:hermes-engine:+") {
++           exclude group:'com.facebook.fbjni'
++       }
+-       def hermesPath = "../../node_modules/hermes-engine/android/";
+-       debugImplementation files(hermesPath + "hermes-debug.aar")
+-       releaseImplementation files(hermesPath + "hermes-release.aar")
+    } else {
+        implementation jscFlavor
+    }
+}
+    // Build a debug version of Hermes
+./gradlew :ReactAndroid:hermes-engine:assembleDebug
+// Build a release version of Hermes
+./gradlew :ReactAndroid:hermes-engine:assembleRelease
+    exclude group:'com.facebook.fbjni'
+    
+    
+  </ImageBackground>
+);
+  
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
